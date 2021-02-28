@@ -235,7 +235,7 @@ namespace Project_FinchControl
                 Console.WriteLine("\tq) Back to Main Menu");
                 Console.Write("\t\tEnter Choice: ");
                 menuChoice = Console.ReadLine().ToLower();
-
+                
                 //
                 // process user menu choice
                 //
