@@ -8,11 +8,13 @@ namespace Project_FinchControl
 
     // **************************************************
     // Title: Finch Control - Menu Starter
-    // Description: FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Description: A program that will allow the user
+    //              to take control of their Finch robot
+    //              through various options
     // Application Type: Console
     // Author: Gurthet, Max
     // Dated Created: 2/22/2021
-    // Last Modified: 2/22/2021
+    // Last Modified: 3/9/2021
     // **************************************************
 
     class Program
@@ -137,11 +139,10 @@ namespace Project_FinchControl
                 // get user menu choice
                 //
                 Console.WriteLine("\ta) Light and Sound");
-                Console.WriteLine("\tb) ");
-                Console.WriteLine("\tc) ");
-                Console.WriteLine("\td) ");
+                Console.WriteLine("\tb) Dance");
+                Console.WriteLine("\tc) Mix It Up");
                 Console.WriteLine("\tq) Main Menu");
-                Console.Write("\t\tEnter Choice:");
+                Console.Write("\t\tEnter Choice: ");
                 menuChoice = Console.ReadLine().ToLower();
 
                 //
@@ -154,17 +155,12 @@ namespace Project_FinchControl
                         break;
 
                     case "b":
-
+                        TalentShowDisplayDance(finchRobot);
                         break;
 
                     case "c":
-
+                        TalentShowDisplayMixingItUp(finchRobot);
                         break;
-
-                    case "d":
-
-                        break;
-
                     case "q":
                         quitTalentShowMenu = true;
                         break;
@@ -180,11 +176,101 @@ namespace Project_FinchControl
         }
 
         /// <summary>
-        /// *****************************************************************
-        /// *               Talent Show > Light and Sound                   *
-        /// *****************************************************************
+        /// make the robot sing a song
         /// </summary>
-        /// <param name="finchRobot">finch robot object</param>
+        static void TalentShowDisplayMixingItUp(Finch finchRobot)
+        {
+            DisplayScreenHeader("Mix It Up");
+
+            Console.WriteLine("\tThe robot will now perform Hot Cross Buns!");
+            DisplayContinuePrompt();
+
+            finchRobot.noteOn(494);
+            finchRobot.wait(500);
+            finchRobot.noteOn(440);
+            finchRobot.wait(500);
+            finchRobot.noteOn(392);
+            finchRobot.wait(1000);
+            finchRobot.noteOn(494);
+            finchRobot.wait(500);
+            finchRobot.noteOn(440);
+            finchRobot.wait(500);
+            finchRobot.noteOn(392);
+            finchRobot.wait(1000);
+            finchRobot.noteOn(392);
+            finchRobot.wait(250);
+            finchRobot.noteOn(392);
+            finchRobot.wait(250);
+            finchRobot.noteOn(392);
+            finchRobot.wait(250);
+            finchRobot.noteOn(392);
+            finchRobot.wait(250);
+            finchRobot.noteOn(440);
+            finchRobot.wait(250);
+            finchRobot.noteOn(440);
+            finchRobot.wait(250);
+            finchRobot.noteOn(440);
+            finchRobot.wait(250);
+            finchRobot.noteOn(440);
+            finchRobot.wait(250);
+            finchRobot.noteOn(494);
+            finchRobot.wait(500);
+            finchRobot.noteOn(440);
+            finchRobot.wait(500);
+            finchRobot.noteOn(392);
+            finchRobot.wait(1000);
+            finchRobot.noteOff();
+
+            DisplayMenuPrompt("Talent Show Menu");
+        }
+
+        /// <summary>
+        /// make the robot peform a short dance
+        /// </summary>
+        static void TalentShowDisplayDance(Finch finchRobot)
+        {
+            DisplayScreenHeader("Dance");
+
+            Console.WriteLine("\tThe Robot will now start it's dance!");
+            DisplayContinuePrompt();
+
+            finchRobot.setLED(255, 0, 0);
+            finchRobot.wait(100);
+            finchRobot.setMotors(180, -180);
+            finchRobot.wait(1000);
+            finchRobot.setLED(0, 255, 0);
+            finchRobot.wait(100);
+            finchRobot.setMotors(-180, 180);
+            finchRobot.wait(1000);
+            finchRobot.setLED(0, 0, 255);
+            finchRobot.wait(100);
+            finchRobot.setMotors(180, 180);
+            finchRobot.wait(500);
+            finchRobot.setMotors(-180, -180);
+            finchRobot.wait(500);
+            finchRobot.setLED(255, 255, 0);
+            finchRobot.wait(100);
+            finchRobot.setMotors(-180, 180);
+            finchRobot.wait(1000);
+            finchRobot.setLED(0, 255, 255);
+            finchRobot.wait(100);
+            finchRobot.setMotors(180, -180);
+            finchRobot.wait(1000);
+            finchRobot.setLED(255, 0, 255);
+            finchRobot.wait(100);
+            finchRobot.setMotors(180, 180);
+            finchRobot.wait(500);
+            finchRobot.setMotors(-180, -180);
+            finchRobot.wait(500);
+            finchRobot.setMotors(0, 0);
+            finchRobot.setLED(0, 0, 0);
+
+            DisplayMenuPrompt("Talent Show Menu");
+        }
+
+        /// <summary>
+        /// make the robot perform a long note and glow
+        /// </summary>
         static void TalentShowDisplayLightAndSound(Finch finchRobot)
         {
             Console.CursorVisible = false;
@@ -208,7 +294,7 @@ namespace Project_FinchControl
         #region DATA RECORDER
         /// <summary>
         /// *****************************************************************
-        /// *                     Data Recorder                             *
+        /// *                     Data Recorder Menu                        *
         /// *****************************************************************
         /// </summary>
         static void DataRecorderDisplayMenuScreen(Finch finchRobot)
@@ -792,9 +878,7 @@ namespace Project_FinchControl
         #region USER INTERFACE
 
         /// <summary>
-        /// *****************************************************************
-        /// *                     Welcome Screen                            *
-        /// *****************************************************************
+        /// welcome screen
         /// </summary>
         static void DisplayWelcomeScreen()
         {
@@ -809,9 +893,7 @@ namespace Project_FinchControl
         }
 
         /// <summary>
-        /// *****************************************************************
-        /// *                     Closing Screen                            *
-        /// *****************************************************************
+        /// closing screen
         /// </summary>
         static void DisplayClosingScreen()
         {
