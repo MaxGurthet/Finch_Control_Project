@@ -363,7 +363,7 @@ namespace Project_FinchControl
 
             Console.WriteLine();
             Console.WriteLine($"\tMotor speed: {commandParameters.motorSpeed}");
-            Console.WriteLine($"\tLED brightness: {commandParameters.motorSpeed}");
+            Console.WriteLine($"\tLED brightness: {commandParameters.ledBrightness}");
             Console.WriteLine($"\tWait command duration: {commandParameters.waitSeconds}");
 
             DisplayMenuPrompt("User Programming");
