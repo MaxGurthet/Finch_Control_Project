@@ -1445,7 +1445,7 @@ namespace Project_FinchControl
             Console.WriteLine();
 
             Console.Write("\tWould you like to change the current theme, yes or no?: ");
-            if (Console.ReadLine().ToLower() == "yes")
+            if (Console.ReadLine().ToLower() == "no")
             {
                 do
                 {
